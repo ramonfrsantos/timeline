@@ -143,13 +143,13 @@ body {
 <div class="timeline">
   <div class="container left">
     <div class="content">
-      <h2>2017</h2>
+      <h4 id="tempo"></h4>
       <p><li id="texto"></li></p>
     </div>
   </div>
   <div class="container right">
     <div class="content">
-      <h2>2016</h2>
+      <h4 id="tempo"></h4>
       <p><li></li></p>
     </div>
   </div>  
@@ -166,15 +166,24 @@ body {
 
           console.log(json);
 
-          var list = document.getElementById("texto");
+          const list = document.getElementById("texto");
+          const data = document.getElementById("tempo")
 
           Object.values(json.events).forEach(element => {
               console.log(element);
 
-              const item = document.createElement("li");
+              const time = new Date(element.timestamp);
+              const dataConvert = time.toDateString();
+
+              const item1 = document.createElement("li");
         
-              item.innerText = `${element.event}`;
-              list.appendChild(item);
+              item1.innerText = `${element.event}`;
+              list.appendChild(item1);
+
+              const item2 = document.createElement("h4");
+        
+              item2.innerText = `${dataConvert}`;
+              data.appendChild(item2);
           })
       }
   }
