@@ -1,198 +1,225 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lista de eventos</title>
-<style>
-* {
-  box-sizing: border-box;
-}
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de eventos</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  background-color: #474e5d;
-  font-family: Helvetica, sans-serif;
-}
+    body {
+      background-color: #474e5d;
+      font-family: Helvetica, sans-serif;
+    }
 
-.timeline {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 6px;
-  background-color: white;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -3px;
-}
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: white;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
 
-.container {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 50%;
-}
+    .container {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
 
-.container::after {
-  content: '';
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -17px;
-  background-color: white;
-  border: 4px solid #FF9F55;
-  top: 15px;
-  border-radius: 50%;
-  z-index: 1;
-}
+    .container::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -17px;
+      background-color: white;
+      border: 4px solid #FF9F55;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
 
-.left {
-  left: 0;
-}
+    .left {
+      left: 0;
+    }
 
-.right {
-  left: 50%;
-}
+    .right {
+      left: 50%;
+    }
 
-.left::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  right: 30px;
-  border: medium solid white;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent white;
-}
+    .left::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      right: 30px;
+      border: medium solid white;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent white;
+    }
 
-.right::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  left: 30px;
-  border: medium solid white;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
-}
+    .right::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      left: 30px;
+      border: medium solid white;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
 
-.right::after {
-  left: -16px;
-}
+    .right::after {
+      left: -16px;
+    }
 
-.content {
-  padding: 20px 30px;
-  background-color: white;
-  position: relative;
-  border-radius: 6px;
-}
+    .content {
+      padding: 20px 30px;
+      background-color: white;
+      position: relative;
+      border-radius: 6px;
+    }
 
-@media screen and (max-width: 600px) {
-  .timeline::after {
-  left: 31px;
-  }
-  
-  .container {
-  width: 100%;
-  padding-left: 70px;
-  padding-right: 25px;
-  }
-  
-  .container::before {
-  left: 60px;
-  border: medium solid white;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
-  }
+    @media screen and (max-width: 600px) {
+      .timeline::after {
+        left: 31px;
+      }
 
-  .left::after, .right::after {
-  left: 15px;
-  }
-  
-  .right {
-  left: 0%;
-  }
-}
-</style>
+      .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      .container::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+
+      .left::after,
+      .right::after {
+        left: 15px;
+      }
+
+      .right {
+        left: 0%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<h1 style="color:white";>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspHistórico de compras<br/></h1>
-<ul style="list-style-type:square;"><div id="timelineId" class="timeline">
+  <h1 style="color:white" ;>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspHistórico
+    de compras<br /></h1>
+  <ul style="list-style-type:none;">
+    <div id="timelineId" class="timeline">
 
-</div></ul>
+    </div>
+  </ul>
 
 
-<script>
+  <script>
+    const url = 'https://storage.googleapis.com/dito-questions/events.json'
 
-  const url = 'https://storage.googleapis.com/dito-questions/events.json'
+    function createNewTimeLineElement(valorItem, valorTitle, valorProduct) {
 
-  function createNewTimeLineElement(valorItem, valorTitle, valorProduct){
-      
-      const timeLineElement = document.getElementById("timelineId");
-      
-      
+      const timeLineElement = document.getElementById("timelineId")
+
+
+      const timeLineData = document.createElement("div")
+      timeLineData.className = "data"
 
       const timeLineContent = document.createElement("div")
-        timeLineContent.className = "content";
+      timeLineContent.className = "content"
 
-      const timeLineCard = document.createElement("div");
-        timeLineCard.className="container"
+      const timeLineCard = document.createElement("div")
+      timeLineCard.className = "container"
 
-      const item  = document.createElement("h4");
-      const title = document.createElement("li");
-      const product = document.createElement("p");
+      const item = document.createElement("h2")
+      const title = document.createElement("h4")
+      const product = document.createElement("p")
 
-      item.innerText = `${valorItem}`;
-      if (valorTitle = true) {
-        title.innerText = `Compra efetuada.`;
+      item.innerText = `${valorItem}`
+      if (valorTitle == "comprou-produto") {
+        title.innerText = `(Produto / ID da transação / Preço em reais)`;
       } else {
-        title.innerText = `Não comprou.`;
+        title.innerText = `(Local de compra / ID da transação)`;
       }
-      product.innerText = `${valorProduct}`;
 
-      timeLineElement.appendChild(timeLineCard);
-      timeLineCard.appendChild(timeLineContent);
-      timeLineContent.appendChild(title).appendChild(item).appendChild(product);
+      valorProduct.forEach(aa => {
+        const subItem = document.createElement("li")
+        subItem.innerText = aa.value
+        product.appendChild(subItem)
+      })
 
-  }
 
-  const getData = async () => {
+      timeLineElement.appendChild(timeLineCard)
+      timeLineCard.appendChild(timeLineContent)
+      timeLineData.appendChild(item)
+      timeLineContent.appendChild(item)
+      timeLineContent.appendChild(title)
+      timeLineContent.appendChild(product)
+
+
+    }
+
+    const getData = async () => {
       let response = await fetch(url)
       if (response.ok) {
-          let json = await response.json();
+        let json = await response.json()
 
-          console.log(json);
+        console.log(json)
 
-          const data = document.getElementById("tempo");
-          const list = document.getElementById("compra");
-          
-          Object.values(json.events).forEach(element => {
-              console.log(element);
+        const data = document.getElementById("tempo")
+        const list = document.getElementById("compra")
 
-              const time = new Date(element.timestamp);
-              const dataConvertida = time.toDateString();
+        Object.values(json.events).forEach(element => {
+          console.log(element)
 
-              const compras = element.event
-              
-              const produtos = JSON.stringify(element.custom_data)
-            
-              createNewTimeLineElement(dataConvertida, compras, produtos);
-              
-          })
+          function dataAtualFormatada(){
+
+            const data = new Date(element.timestamp)
+
+            dia  = data.getDate().toString(),
+            diaF = (dia.length == 1) ? '0'+dia : dia,
+            mes  = (data.getMonth()+1).toString(), //+1 pois no getMonth Janeiro começa com zero.
+            mesF = (mes.length == 1) ? '0'+mes : mes,
+            anoF = data.getFullYear();
+            return "Data da compra: "+diaF+"/"+mesF+"/"+anoF;
+          }
+
+          const compras = element.event
+
+          const produtos = Object.values(element.custom_data)
+
+          createNewTimeLineElement(dataAtualFormatada(), compras, produtos)
+
+        })
       }
-  }
+    }
 
-  getData();
-
-</script>
+    getData()
+  </script>
 
 </body>
+
 </html>
