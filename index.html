@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lista de eventos</title>
 <style>
 * {
@@ -124,19 +124,19 @@ body {
 </style>
 </head>
 <body>
-<h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspLista de eventos<br/></h1>
-<div id="timeline" class="timeline">
+<h1 style="color:white";>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspHistórico de compras<br/></h1>
+<ul style="list-style-type:square;"><div id="timelineId" class="timeline">
 
-</div>
+</div></ul>
 
 
 <script>
 
   const url = 'https://storage.googleapis.com/dito-questions/events.json'
 
-  function createNewTimeLineElement(valorItem, valorTitle){
+  function createNewTimeLineElement(valorItem, valorTitle, valorProduct){
       
-      const timeLineElement = document.getElementById("timeline");
+      const timeLineElement = document.getElementById("timelineId");
       
       
 
@@ -148,16 +148,19 @@ body {
 
       const item  = document.createElement("h4");
       const title = document.createElement("li");
+      const product = document.createElement("p");
 
       item.innerText = `${valorItem}`;
-      title.innerText = `${valorTitle}`;
-      
+      if (valorTitle = true) {
+        title.innerText = `Compra efetuada.`;
+      } else {
+        title.innerText = `Não comprou.`;
+      }
+      product.innerText = `${valorProduct}`;
 
       timeLineElement.appendChild(timeLineCard);
       timeLineCard.appendChild(timeLineContent);
-      timeLineContent.appendChild(title).appendChild(item);
-      
-
+      timeLineContent.appendChild(title).appendChild(item).appendChild(product);
 
   }
 
@@ -177,7 +180,12 @@ body {
               const time = new Date(element.timestamp);
               const dataConvertida = time.toDateString();
 
-              createNewTimeLineElement(dataConvertida, element.event );
+              const compras = element.event
+              
+              const produtos = JSON.stringify(element.custom_data)
+            
+              createNewTimeLineElement(dataConvertida, compras, produtos);
+              
           })
       }
   }
